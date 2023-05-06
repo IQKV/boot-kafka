@@ -1,5 +1,5 @@
 {
-    "name": "ujar-boot-kafka",
+    "name": "boot-kafka",
     "version": "23.0.0",
     "description": "Provide an optional Git commit hooks.",
     "private": true,

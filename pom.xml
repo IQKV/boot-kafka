@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.ujar.boot</groupId>
-    <artifactId>ujar-boot-kafka</artifactId>
+    <artifactId>boot-kafka</artifactId>
     <version>23.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>ujar-boot-kafka</name>
+    <name>boot-kafka</name>
     <description>Kafka support library</description>
     <licenses>
         <license>
@@ -33,7 +33,7 @@
 
     <parent>
         <groupId>org.ujar.boot</groupId>
-        <artifactId>ujar-boot-parent-pom</artifactId>
+        <artifactId>boot-parent-pom</artifactId>
         <version>23.0.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
