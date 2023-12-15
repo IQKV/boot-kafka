@@ -1,4 +1,4 @@
-package org.ujar.boot.kafka.config;
+package org.iqkv.boot.kafka.config;
 
 import java.util.concurrent.ExecutionException;
 

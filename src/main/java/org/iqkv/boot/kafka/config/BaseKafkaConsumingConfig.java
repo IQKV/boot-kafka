@@ -1,10 +1,13 @@
-package org.ujar.boot.kafka.config;
+package org.iqkv.boot.kafka.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.iqkv.boot.kafka.config.errorhandling.Backoff;
+import org.iqkv.boot.kafka.exception.ConsumerRecordProcessingException;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import org.springframework.boot.ssl.SslBundles;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaListenerConfigurer;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -18,15 +21,15 @@ import org.springframework.kafka.support.ExponentialBackOffWithMaxRetries;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerde;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.ujar.boot.kafka.config.errorhandling.Backoff;
-import org.ujar.boot.kafka.exception.ConsumerRecordProcessingException;
 
 @RequiredArgsConstructor
 public abstract class BaseKafkaConsumingConfig implements KafkaListenerConfigurer {
   private final LocalValidatorFactoryBean validator;
 
-  protected <V> ConsumerFactory<String, V> consumerFactory(Class<V> valueClass, KafkaProperties kafkaProperties) {
-    final var consumerProperties = kafkaProperties.getConsumer().buildProperties();
+  protected <V> ConsumerFactory<String, V> consumerFactory(Class<V> valueClass,
+                                                           KafkaProperties kafkaProperties,
+                                                           SslBundles sslBundles) {
+    final var consumerProperties = kafkaProperties.getConsumer().buildProperties(sslBundles);
     try (var serde = new JsonSerde<>(valueClass, new ObjectMapper())) {
       return new DefaultKafkaConsumerFactory<>(consumerProperties,
           new ErrorHandlingDeserializer<>(new StringDeserializer()), new ErrorHandlingDeserializer<>(

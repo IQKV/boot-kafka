@@ -1,13 +1,13 @@
-package org.ujar.boot.kafka.config;
+package org.iqkv.boot.kafka.config;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
+import org.iqkv.boot.kafka.config.errorhandling.Backoff;
+import org.iqkv.boot.kafka.config.errorhandling.DeadLetter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.ujar.boot.kafka.config.errorhandling.Backoff;
-import org.ujar.boot.kafka.config.errorhandling.DeadLetter;
 
-@ConfigurationProperties(prefix = "ujar.kafka.error-handling")
+@ConfigurationProperties(prefix = "iqkv.kafka.error-handling")
 public record KafkaErrorHandlingProperties(
     @NotNull @Valid DeadLetter deadLetter,
     @NotNull @Valid Backoff backoff) {

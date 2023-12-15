@@ -1,4 +1,4 @@
-package org.ujar.boot.kafka.config.errorhandling;
+package org.iqkv.boot.kafka.config.errorhandling;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

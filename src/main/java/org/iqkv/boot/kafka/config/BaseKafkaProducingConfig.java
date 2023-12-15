@@ -1,10 +1,11 @@
-package org.ujar.boot.kafka.config;
+package org.iqkv.boot.kafka.config;
 
 import java.util.UUID;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import org.springframework.boot.ssl.SslBundles;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -13,9 +14,11 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 
 public abstract class BaseKafkaProducingConfig {
 
-  protected <V> ProducerFactory<String, V> producerFactory(Class<V> valueClass, KafkaProperties kafkaProperties) {
+  protected <V> ProducerFactory<String, V> producerFactory(Class<V> valueClass,
+                                                           KafkaProperties kafkaProperties,
+                                                           SslBundles sslBundles) {
     try (var serde = new JsonSerde<>(valueClass, new ObjectMapper())) {
-      final var producerProperties = kafkaProperties.getProducer().buildProperties();
+      final var producerProperties = kafkaProperties.getProducer().buildProperties(sslBundles);
       final var producerFactory = new DefaultKafkaProducerFactory<>(producerProperties,
           new StringSerializer(),
           serde.serializer());
