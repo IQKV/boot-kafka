@@ -1,10 +1,10 @@
-package org.iqkv.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
-import org.iqkv.boot.kafka.config.errorhandling.Backoff;
-import org.iqkv.boot.kafka.config.errorhandling.DeadLetter;
+import com.iqkv.boot.kafka.config.errorhandling.Backoff;
+import com.iqkv.boot.kafka.config.errorhandling.DeadLetter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "iqkv.kafka.error-handling")

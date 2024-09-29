@@ -1,4 +1,4 @@
-package org.iqkv.boot.kafka.config.errorhandling;
+package com.iqkv.boot.kafka.config.errorhandling;
 
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;

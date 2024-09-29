@@ -1,11 +1,11 @@
-package org.iqkv.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.iqkv.boot.kafka.config.errorhandling.Backoff;
-import org.iqkv.boot.kafka.exception.ConsumerRecordProcessingException;
+import com.iqkv.boot.kafka.config.errorhandling.Backoff;
+import com.iqkv.boot.kafka.exception.ConsumerRecordProcessingException;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.ssl.SslBundles;
 import org.springframework.context.annotation.Bean;

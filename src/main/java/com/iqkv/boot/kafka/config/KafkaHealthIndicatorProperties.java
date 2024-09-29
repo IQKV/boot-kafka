@@ -1,4 +1,4 @@
-package org.iqkv.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
 

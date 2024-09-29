@@ -1,9 +1,9 @@
-package org.iqkv.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
 import java.util.Map;
 
-import org.iqkv.boot.kafka.config.topic.TopicDefinition;
+import com.iqkv.boot.kafka.config.topic.TopicDefinition;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "iqkv.kafka")

@@ -1,4 +1,4 @@
-package org.iqkv.boot.kafka.config.topic;
+package com.iqkv.boot.kafka.config.topic;
 
 import jakarta.validation.constraints.NotNull;
 import java.time.Duration;

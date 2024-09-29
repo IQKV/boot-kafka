@@ -1,4 +1,4 @@
-package org.iqkv.boot.kafka.exception;
+package com.iqkv.boot.kafka.exception;
 
 import java.io.Serial;
 
