@@ -8,6 +8,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Value
 @ConfigurationProperties(prefix = "management.health.kafka")
 public class KafkaHealthIndicatorProperties {
-  @NotNull Boolean enabled;
-  @NotNull Integer responseTimeout;
+  @NotNull
+  Boolean enabled;
+  @NotNull
+  Integer responseTimeout;
 }
