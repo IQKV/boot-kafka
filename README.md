@@ -11,4 +11,4 @@ YY.MM.MICRO
 
 1. **YY** - short year - 6, 16, 106
 1. **MM** - short month - 1, 2 ... 11, 12
-1. **MICRO** -  "patch" segment
+1. **MICRO** - "patch" segment
