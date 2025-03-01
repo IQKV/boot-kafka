@@ -22,7 +22,7 @@ import java.util.Map;
 import com.iqkv.boot.kafka.config.topic.TopicDefinition;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "iqkv.kafka")
+@ConfigurationProperties(prefix = "application-settings.kafka")
 public record KafkaTopicDefinitionProperties(@NotNull Map<String, TopicDefinition> topics) {
 
   public Map<String, TopicDefinition> getTopics() {

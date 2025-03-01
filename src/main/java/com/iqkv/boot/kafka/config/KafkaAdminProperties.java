@@ -20,7 +20,7 @@ import jakarta.validation.constraints.NotNull;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "iqkv.kafka.admin")
+@ConfigurationProperties(prefix = "application-settings.kafka.admin")
 public record KafkaAdminProperties(@NotNull Boolean createTopics) {
 
   public Boolean isTopicsCreatedByKafkaAdmin() {
