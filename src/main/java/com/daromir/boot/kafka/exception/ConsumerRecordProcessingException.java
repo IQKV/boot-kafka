@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.config;
+package com.daromir.boot.kafka.exception;
 
-import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+public class ConsumerRecordProcessingException extends RuntimeException {
 
-@ConfigurationProperties(prefix = "application-settings.kafka.admin")
-public record KafkaAdminProperties(@NotNull Boolean createTopics) {
+  @Serial
+  private static final long serialVersionUID = 1L;
 
-  public Boolean isTopicsCreatedByKafkaAdmin() {
-    return createTopics();
+  public ConsumerRecordProcessingException(String message, Throwable cause) {
+    super(message, cause);
   }
 }
-

@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.config;
+package com.daromir.boot.kafka.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.iqkv.boot.kafka.config.errorhandling.Backoff;
-import com.iqkv.boot.kafka.exception.ConsumerRecordProcessingException;
+import com.daromir.boot.kafka.config.errorhandling.Backoff;
+import com.daromir.boot.kafka.exception.ConsumerRecordProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;

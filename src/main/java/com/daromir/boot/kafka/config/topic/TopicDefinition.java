@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,31 +14,25 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.config.errorhandling;
+package com.daromir.boot.kafka.config.topic;
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import java.time.Duration;
 
-public record Backoff(
-    @NotNull Duration initialInterval,
-    @NotNull Duration maxInterval,
-    @Positive int maxRetries,
-    @Positive double multiplier) {
+public record TopicDefinition(
+    @NotNull String name,
+    @NotNull Integer partitions,
+    @NotNull Duration retention) {
 
-  public Duration getInitialInterval() {
-    return initialInterval();
+  public String getName() {
+    return name();
   }
 
-  public Duration getMaxInterval() {
-    return maxInterval();
+  public Integer getPartitions() {
+    return partitions();
   }
 
-  public int getMaxRetries() {
-    return maxRetries();
-  }
-
-  public double getMultiplier() {
-    return multiplier();
+  public Duration getRetention() {
+    return retention();
   }
 }
