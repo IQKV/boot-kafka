@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,17 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.config;
+package com.daromir.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
-import java.util.Map;
 
-import com.iqkv.boot.kafka.config.topic.TopicDefinition;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "application-settings.kafka")
-public record KafkaTopicDefinitionProperties(@NotNull Map<String, TopicDefinition> topics) {
+@ConfigurationProperties(prefix = "application-settings.kafka.admin")
+public record KafkaAdminProperties(@NotNull Boolean createTopics) {
 
-  public Map<String, TopicDefinition> getTopics() {
-    return topics();
-  }
-
-  public TopicDefinition get(String key) {
-    return topics.get(key);
+  public Boolean isTopicsCreatedByKafkaAdmin() {
+    return createTopics();
   }
 }
 

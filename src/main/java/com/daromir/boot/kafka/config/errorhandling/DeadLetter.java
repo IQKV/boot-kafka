@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.exception;
+package com.daromir.boot.kafka.config.errorhandling;
 
-import java.io.Serial;
+import jakarta.annotation.Nullable;
+import jakarta.validation.constraints.NotNull;
+import java.time.Duration;
 
-public class ConsumerRecordProcessingException extends RuntimeException {
+public record DeadLetter(
+    @NotNull Duration retention,
+    @Nullable String suffix) {
 
-  @Serial
-  private static final long serialVersionUID = 1L;
+  public Duration getRetention() {
+    return retention();
+  }
 
-  public ConsumerRecordProcessingException(String message, Throwable cause) {
-    super(message, cause);
+  public String getSuffix() {
+    return suffix();
   }
 }

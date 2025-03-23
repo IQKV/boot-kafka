@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,23 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.config.errorhandling;
+package com.daromir.boot.kafka.config;
 
-import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
-import java.time.Duration;
+import java.util.Map;
 
-public record DeadLetter(
-    @NotNull Duration retention,
-    @Nullable String suffix) {
+import com.daromir.boot.kafka.config.topic.TopicDefinition;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-  public Duration getRetention() {
-    return retention();
+@ConfigurationProperties(prefix = "application-settings.kafka")
+public record KafkaTopicDefinitionProperties(@NotNull Map<String, TopicDefinition> topics) {
+
+  public Map<String, TopicDefinition> getTopics() {
+    return topics();
   }
 
-  public String getSuffix() {
-    return suffix();
+  public TopicDefinition get(String key) {
+    return topics.get(key);
   }
 }
+

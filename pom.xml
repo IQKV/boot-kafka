@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.iqkv.boot</groupId>
+    <groupId>com.daromir.boot</groupId>
     <artifactId>boot-kafka</artifactId>
     <version>25.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -18,8 +18,8 @@
         </license>
     </licenses>
     <organization>
-        <name>IQKV</name>
-        <url>https://iqkv.com</url>
+        <name>Daromir Tech</name>
+        <url>https://daromir.com</url>
     </organization>
     <developers>
         <developer>
@@ -32,7 +32,7 @@
     </developers>
 
     <parent>
-        <groupId>com.iqkv.boot</groupId>
+        <groupId>com.daromir.boot</groupId>
         <artifactId>boot-parent-pom</artifactId>
         <version>25.0.0-SNAPSHOT</version>
         <relativePath/>

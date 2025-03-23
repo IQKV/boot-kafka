@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 IQKV Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.iqkv.boot.kafka.config;
+package com.daromir.boot.kafka.config;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
-import com.iqkv.boot.kafka.config.errorhandling.Backoff;
-import com.iqkv.boot.kafka.config.errorhandling.DeadLetter;
+import com.daromir.boot.kafka.config.errorhandling.Backoff;
+import com.daromir.boot.kafka.config.errorhandling.DeadLetter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "application-settings.kafka.error-handling")
