@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Expertness Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,17 @@
  * limitations under the License.
  */
 
-package com.daromir.boot.kafka.config;
+package expert.uses.boot.kafka.config;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
-import com.daromir.boot.kafka.config.errorhandling.Backoff;
-import com.daromir.boot.kafka.config.errorhandling.DeadLetter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "application-settings.kafka.error-handling")
-public record KafkaErrorHandlingProperties(
-    @NotNull @Valid DeadLetter deadLetter,
-    @NotNull @Valid Backoff backoff) {
+@ConfigurationProperties(prefix = "expertness.kafka.admin")
+public record KafkaAdminProperties(@NotNull Boolean createTopics) {
 
-
-  public DeadLetter getDeadLetter() {
-    return deadLetter();
-  }
-
-  public Backoff getBackoff() {
-    return backoff();
+  public Boolean isTopicsCreatedByKafkaAdmin() {
+    return createTopics();
   }
 }
 

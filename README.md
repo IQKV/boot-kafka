@@ -1,4 +1,4 @@
-# Kafka properties handling
+# ✨ Kafka properties handling
 
 ## Versioning
 
