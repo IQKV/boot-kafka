@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Expertness Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,25 @@
  * limitations under the License.
  */
 
-package com.daromir.boot.kafka.config;
+package expert.uses.boot.kafka.config.topic;
 
 import jakarta.validation.constraints.NotNull;
-import java.util.Map;
+import java.time.Duration;
 
-import com.daromir.boot.kafka.config.topic.TopicDefinition;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+public record TopicDefinition(
+    @NotNull String name,
+    @NotNull Integer partitions,
+    @NotNull Duration retention) {
 
-@ConfigurationProperties(prefix = "application-settings.kafka")
-public record KafkaTopicDefinitionProperties(@NotNull Map<String, TopicDefinition> topics) {
-
-  public Map<String, TopicDefinition> getTopics() {
-    return topics();
+  public String getName() {
+    return name();
   }
 
-  public TopicDefinition get(String key) {
-    return topics.get(key);
+  public Integer getPartitions() {
+    return partitions();
+  }
+
+  public Duration getRetention() {
+    return retention();
   }
 }
-

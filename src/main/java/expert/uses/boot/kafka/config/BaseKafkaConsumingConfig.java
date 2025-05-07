@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Expertness Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.daromir.boot.kafka.config;
+package expert.uses.boot.kafka.config;
+
+import expert.uses.boot.kafka.config.errorhandling.Backoff;
+import expert.uses.boot.kafka.exception.ConsumerRecordProcessingException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.daromir.boot.kafka.config.errorhandling.Backoff;
-import com.daromir.boot.kafka.exception.ConsumerRecordProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;

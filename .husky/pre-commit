@@ -4,19 +4,19 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 main_branch="(main|master|dev|develop)"
 if [[ $current_branch =~ $main_branch ]]; then
-    echo -e "⚠️ Please don't commit directly to $current_branch.";
+    echo -e "\n⚠️ Please don't commit directly to $current_branch.";
     exit 1
 fi
 
 valid_branch_names="^(feature|rfc|bugfix|improvement|library|prerelease|hotfix)\/[a-z0-9._-]+$"
 if [[ ! $current_branch =~ $valid_branch_names ]]; then
-    echo -e "🚧 Your branch name is illegal. Please rename your branch with using following regex: $valid_branch_names"
+    echo -e "\n🚧 Your branch name is illegal. Please rename your branch with using following regex: $valid_branch_names"
     exit 1
 fi
 
 valid_commit="^(feat|fix|rfc|docs|style|refactor|perf|test|chore|build|ci|revert)(.+?)?: .+"
 if [[ ! $1 =~ $valid_commit ]]; then
-   echo -e "🚨 Your commit title did not follow semantic versioning."
+   echo -e "\n🚨 Your commit title did not follow semantic versioning."
     exit 1
 fi
 
@@ -24,7 +24,7 @@ npx --no -- commitlint --edit "${1}"
 
 ./mvnw clean validate
 if [ "$?" -ne 0 ]; then
-    echo -e "🛑 Maven Validate unsuccessful.\033[0m"
+    echo -e "\n🛑 Maven Validate unsuccessful.\033[0m"
     exit 1
 fi
 

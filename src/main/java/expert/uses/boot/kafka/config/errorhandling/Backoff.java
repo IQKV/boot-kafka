@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Expertness Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,31 @@
  * limitations under the License.
  */
 
-package com.daromir.boot.kafka.config.errorhandling;
+package expert.uses.boot.kafka.config.errorhandling;
 
-import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.time.Duration;
 
-public record DeadLetter(
-    @NotNull Duration retention,
-    @Nullable String suffix) {
+public record Backoff(
+    @NotNull Duration initialInterval,
+    @NotNull Duration maxInterval,
+    @Positive int maxRetries,
+    @Positive double multiplier) {
 
-  public Duration getRetention() {
-    return retention();
+  public Duration getInitialInterval() {
+    return initialInterval();
   }
 
-  public String getSuffix() {
-    return suffix();
+  public Duration getMaxInterval() {
+    return maxInterval();
+  }
+
+  public int getMaxRetries() {
+    return maxRetries();
+  }
+
+  public double getMultiplier() {
+    return multiplier();
   }
 }

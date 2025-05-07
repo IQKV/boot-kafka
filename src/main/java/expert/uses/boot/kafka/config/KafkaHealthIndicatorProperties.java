@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Daromir Team, and the original author or authors from the JHipster project.
+ * Copyright 2025 Expertness Team, and the original author or authors from the JHipster project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.daromir.boot.kafka.config;
+package expert.uses.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
 
