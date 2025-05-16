@@ -9,6 +9,7 @@ npm-debug.log.*
 /.awcache/*
 /.cache-loader/*
 package-lock.json
+pnpm-lock.yaml
 
 # TypeScript cache
 *.tsbuildinfo
