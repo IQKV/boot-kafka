@@ -14,24 +14,17 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
-import java.util.Map;
-
-import expert.uses.boot.kafka.config.topic.TopicDefinition;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "expertness.kafka")
-public record KafkaTopicDefinitionProperties(@NotNull Map<String, TopicDefinition> topics) {
+@ConfigurationProperties(prefix = "expertness.kafka.admin")
+public record KafkaAdminProperties(@NotNull Boolean createTopics) {
 
-  public Map<String, TopicDefinition> getTopics() {
-    return topics();
-  }
-
-  public TopicDefinition get(String key) {
-    return topics.get(key);
+  public Boolean isTopicsCreatedByKafkaAdmin() {
+    return createTopics();
   }
 }
 

@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config.topic;
+package com.iqkv.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
-import java.time.Duration;
+import java.util.Map;
 
-public record TopicDefinition(
-    @NotNull String name,
-    @NotNull Integer partitions,
-    @NotNull Duration retention) {
+import com.iqkv.boot.kafka.config.topic.TopicDefinition;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-  public String getName() {
-    return name();
+@ConfigurationProperties(prefix = "expertness.kafka")
+public record KafkaTopicDefinitionProperties(@NotNull Map<String, TopicDefinition> topics) {
+
+  public Map<String, TopicDefinition> getTopics() {
+    return topics();
   }
 
-  public Integer getPartitions() {
-    return partitions();
-  }
-
-  public Duration getRetention() {
-    return retention();
+  public TopicDefinition get(String key) {
+    return topics.get(key);
   }
 }
+

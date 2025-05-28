@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config;
+package com.iqkv.boot.kafka.exception;
 
-import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+public class ConsumerRecordProcessingException extends RuntimeException {
 
-@ConfigurationProperties(prefix = "expertness.kafka.admin")
-public record KafkaAdminProperties(@NotNull Boolean createTopics) {
+  @Serial
+  private static final long serialVersionUID = 1L;
 
-  public Boolean isTopicsCreatedByKafkaAdmin() {
-    return createTopics();
+  public ConsumerRecordProcessingException(String message, Throwable cause) {
+    super(message, cause);
   }
 }
-

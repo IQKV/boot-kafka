@@ -14,18 +14,27 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
-import lombok.Value;
+import com.iqkv.boot.kafka.config.errorhandling.Backoff;
+import com.iqkv.boot.kafka.config.errorhandling.DeadLetter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@Value
-@ConfigurationProperties(prefix = "management.health.kafka")
-public class KafkaHealthIndicatorProperties {
-  @NotNull
-  Boolean enabled;
-  @NotNull
-  Integer responseTimeout;
+@ConfigurationProperties(prefix = "expertness.kafka.error-handling")
+public record KafkaErrorHandlingProperties(
+    @NotNull @Valid DeadLetter deadLetter,
+    @NotNull @Valid Backoff backoff) {
+
+
+  public DeadLetter getDeadLetter() {
+    return deadLetter();
+  }
+
+  public Backoff getBackoff() {
+    return backoff();
+  }
 }
+
