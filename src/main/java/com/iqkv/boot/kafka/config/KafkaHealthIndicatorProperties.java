@@ -14,31 +14,18 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config.errorhandling;
+package com.iqkv.boot.kafka.config;
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import java.time.Duration;
 
-public record Backoff(
-    @NotNull Duration initialInterval,
-    @NotNull Duration maxInterval,
-    @Positive int maxRetries,
-    @Positive double multiplier) {
+import lombok.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-  public Duration getInitialInterval() {
-    return initialInterval();
-  }
-
-  public Duration getMaxInterval() {
-    return maxInterval();
-  }
-
-  public int getMaxRetries() {
-    return maxRetries();
-  }
-
-  public double getMultiplier() {
-    return multiplier();
-  }
+@Value
+@ConfigurationProperties(prefix = "management.health.kafka")
+public class KafkaHealthIndicatorProperties {
+  @NotNull
+  Boolean enabled;
+  @NotNull
+  Integer responseTimeout;
 }

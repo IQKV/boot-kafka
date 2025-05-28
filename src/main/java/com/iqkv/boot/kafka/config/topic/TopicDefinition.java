@@ -14,28 +14,25 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config;
+package com.iqkv.boot.kafka.config.topic;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import java.time.Duration;
 
-import expert.uses.boot.kafka.config.errorhandling.Backoff;
-import expert.uses.boot.kafka.config.errorhandling.DeadLetter;
+public record TopicDefinition(
+    @NotNull String name,
+    @NotNull Integer partitions,
+    @NotNull Duration retention) {
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
-@ConfigurationProperties(prefix = "expertness.kafka.error-handling")
-public record KafkaErrorHandlingProperties(
-    @NotNull @Valid DeadLetter deadLetter,
-    @NotNull @Valid Backoff backoff) {
-
-
-  public DeadLetter getDeadLetter() {
-    return deadLetter();
+  public String getName() {
+    return name();
   }
 
-  public Backoff getBackoff() {
-    return backoff();
+  public Integer getPartitions() {
+    return partitions();
+  }
+
+  public Duration getRetention() {
+    return retention();
   }
 }
-

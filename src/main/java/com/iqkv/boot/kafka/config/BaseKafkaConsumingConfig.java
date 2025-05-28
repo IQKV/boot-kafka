@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config;
-
-import expert.uses.boot.kafka.config.errorhandling.Backoff;
-import expert.uses.boot.kafka.exception.ConsumerRecordProcessingException;
+package com.iqkv.boot.kafka.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.iqkv.boot.kafka.config.errorhandling.Backoff;
+import com.iqkv.boot.kafka.exception.ConsumerRecordProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;

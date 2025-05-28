@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.config;
+package com.iqkv.boot.kafka.config;
 
 import java.util.concurrent.ExecutionException;
 

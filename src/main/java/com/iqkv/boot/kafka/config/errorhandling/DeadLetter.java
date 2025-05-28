@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
-package expert.uses.boot.kafka.exception;
+package com.iqkv.boot.kafka.config.errorhandling;
 
-import java.io.Serial;
+import jakarta.annotation.Nullable;
+import jakarta.validation.constraints.NotNull;
+import java.time.Duration;
 
-public class ConsumerRecordProcessingException extends RuntimeException {
+public record DeadLetter(
+    @NotNull Duration retention,
+    @Nullable String suffix) {
 
-  @Serial
-  private static final long serialVersionUID = 1L;
+  public Duration getRetention() {
+    return retention();
+  }
 
-  public ConsumerRecordProcessingException(String message, Throwable cause) {
-    super(message, cause);
+  public String getSuffix() {
+    return suffix();
   }
 }
