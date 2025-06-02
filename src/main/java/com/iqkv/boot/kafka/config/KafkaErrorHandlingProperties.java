@@ -23,7 +23,7 @@ import com.iqkv.boot.kafka.config.errorhandling.Backoff;
 import com.iqkv.boot.kafka.config.errorhandling.DeadLetter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "expertness.kafka.error-handling")
+@ConfigurationProperties(prefix = "application-configuration.kafka.error-handling")
 public record KafkaErrorHandlingProperties(
     @NotNull @Valid DeadLetter deadLetter,
     @NotNull @Valid Backoff backoff) {
