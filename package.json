@@ -8,7 +8,8 @@
     "lint:stylelint": "stylelint \"**/*.css\" --cache",
     "prepare": "husky",
     "prettier:check": "prettier . --check",
-    "prettier:write": "prettier . --write"
+    "prettier:write": "prettier . --write",
+    "node_modules:clear": "rm -rf node_modules"
   },
   "author": "Dima Denisenko",
   "license": "Apache-2.0",
@@ -25,7 +26,6 @@
     "cz-conventional-changelog": "^3.3.0",
     "glob": "^11.0.3",
     "husky": "9.1.7",
-    "lerna": "^8.2.2",
     "lint-staged": "^16.1.0",
     "prettier": "3.5.3",
     "prettier-plugin-java": "2.6.8",
