@@ -1,23 +1,28 @@
 {
   "name": "@iqkv/boot-kafka",
   "version": "25.0.0",
-  "description": "Provide an optional Git commit hooks.",
   "private": true,
+  "description": "Provide an optional Git commit hooks.",
+  "license": "Apache-2.0",
+  "author": "Dima Denisenko",
   "scripts": {
     "lint": "npm run lint:stylelint",
     "lint:stylelint": "stylelint \"**/*.css\" --cache",
+    "node_modules:clear": "rm -rf node_modules",
     "prepare": "husky",
     "prettier:check": "prettier . --check",
-    "prettier:write": "prettier . --write",
-    "node_modules:clear": "rm -rf node_modules"
+    "prettier:write": "prettier . --write"
   },
-  "author": "Dima Denisenko",
-  "license": "Apache-2.0",
   "lint-staged": {
     "**/*.{js}": [
       "npm run lint",
       "prettier . --check --ignore-unknown"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
@@ -34,11 +39,6 @@
     "sort-package-json": "^3.4.0",
     "stylelint": "^16.21.0",
     "stylelint-config-standard-scss": "^15.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   },
   "engines": {
     "node": ">=22.15.0"
