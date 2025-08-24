@@ -1,0 +1,33 @@
+{
+  "$schema": "<https://unpkg.com/release-it@19/schema/release-it.json>",
+  "git": {
+    "commit": true,
+    "tag": true,
+    "push": true,
+    "commitMessage": "feat: bump ${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": false,
+    "requireBranch": "dev"
+  },
+  "github": {
+    "release": true,
+    "draft": false,
+    "releaseName": "Release ${version}",
+    "tokenRef": "GITHUB_TOKEN"
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "after:release": "echo Successfully released ${name} ${version} to GitHub!"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "header": "# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.",
+      "preset": {
+        "name": "angular"
+      },
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
